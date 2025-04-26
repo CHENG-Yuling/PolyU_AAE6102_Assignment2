@@ -82,12 +82,14 @@ DGNSS is affordable and practical, but not highly precise. RTK and PPP-RTK deliv
 
 ### Task 2 ###
 
+Call the .mat - `postProcessing.m` file generated in A1 to get the pseudo-distance, satellite position, etc. in it, and 
 
-- `postProcessing.m`
-<img src=https://github.com/CHENG-Yuling/PolyU_AAE6102_Assignment2 alt="替代文本" width=400 height=300>
+then process the skymask data to adjust the angle,
+<img src=https://github.com/CHENG-Yuling/PolyU_AAE6102_Assignment2/blob/main/Skymask%20horizon.jpg alt="替代文本" width=400 height=300>
 
+Finally obtain it:
 
-<img src=https://github.com/CHENG-Yuling/PolyU_AAE6102_Assignment2 alt="替代文本" width=400 height=300>
+<img src=https://github.com/CHENG-Yuling/PolyU_AAE6102_Assignment2/blob/main/GNSS%20Positioning%20in%20Urban%20Environment.jpg alt="替代文本" width=400 height=300>
 
 
 ### Task 3 ###
