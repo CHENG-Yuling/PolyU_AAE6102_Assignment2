@@ -82,28 +82,51 @@ DGNSS is affordable and practical, but not highly precise. RTK and PPP-RTK deliv
 
 ### Task 2 ###
 
-Call the .mat - `postProcessing.m` file generated in A1 to get the pseudo-distance, satellite position, etc. in it, and 
+Call the - `navSolutionResults.mat` file from "Urban.dat" data generated in A1 to get the information of pseudorange, satellite position, etc.
 
-then process the skymask data to adjust the angle,
-<img src=https://github.com/CHENG-Yuling/PolyU_AAE6102_Assignment2/blob/main/Skymask%20horizon.jpg alt="替代文本" width=400 height=300>
+Analyze the skymask to identify the azimuth and elevation angles where satellite signals are obstructed. After load skymask CSV, we can see the skymask is plotted with azimuth on the x-axis and blocking elevation on the y-axis.
 
-Finally obtain it:
+<img src=https://github.com/CHENG-Yuling/PolyU_AAE6102_Assignment2/blob/main/Skymask%20horizon.jpg alt="替代文本" width=500 height=350>
 
-<img src=https://github.com/CHENG-Yuling/PolyU_AAE6102_Assignment2/blob/main/GNSS%20Positioning%20in%20Urban%20Environment.jpg alt="替代文本" width=400 height=300>
+Then process the skymask data to adjust the angle, finally obtain it:
+
+<img src=https://github.com/CHENG-Yuling/PolyU_AAE6102_Assignment2/blob/main/GNSS%20Positioning%20in%20Urban%20Environment.jpg alt="替代文本" width=500 height=350>
 
 
 ### Task 3 ###
-1. Weighted Least Squares (WLS) Implementation
+**1. Weighted Least Squares (WLS) Implementation**
+
 In WLS, the weight of the error is considered and the following formula is used for parameter estimation: $\hat{\mathbf{p}} = (\mathbf{H}^T \mathbf{W} \mathbf{H})^{-1} \mathbf{H}^T \mathbf{W} \mathbf{r}$。
 
-2. Weighted RAIM Algorithm
-a. Input Data
-Load the provided "Open-Sky" data, which includes pseudorange measurements from multiple satellites.
+**2. Weighted RAIM Algorithm**
 
-b. Compute the Position Estimate
-Use your WLS implementation to compute the position estimate 
-𝑥
+a. Input Data: Load the provided "Open-Sky" data, which includes pseudorange measurements from multiple satellites.
 
+b. Compute Residuals: After computing the position using WLS, calculate the residuals for each satellite measurement: $$\mathbf{r} = \mathbf{y} - \mathbf{A} \mathbf{x}$$
+
+c. Compute Test Statistic: Use residuals to compute test statistics: $$T_i = \frac{r_i}{\sigma_i}$$
+
+d. Detection Threshold: Set a detection threshold based on the probability of false alarm $$P_{fa}$$ and missed detection $$P_{md}$$. Use the hint provided:
+- For $$P_{fa} = 10^{-2}$$, calculate the threshold using statistical tables or simulations.
+- For $$P_{md} = 10^{-7}$$, use the threshold 5.33σ
+
+e. Fault Detection: Compare each test statistic $$T_i$$ against the threshold. If $$T_i$$ exceeds the threshold, the measurement is considered faulty.
+
+f. Fault Exclusion: Exclude the faulty measurement and recompute the position using the remaining measurements.
+
+**3. Compute 3D Protection Level (PL)**
+
+a. Protection Level Calculation: The protection level is a measure of the maximum error that can be tolerated without compromising integrity. It can be computed using the geometry of the satellite constellation and the measurement error model.
+
+b. Use the given probabilities: 
+- For $$P_{fa} = 10^{-2}$$, compute the PL using statistical methods.
+- For $$P_{md} = 10^{-7}$$, ensure the PL accounts for the threshold 5.33σ.
+
+**4. Stanford Chart Analysis**
+
+a. Plot Stanford Chart: A Stanford Chart is used to visualize the integrity performance of the GNSS system. It plots the protection level against the actual error.
+
+b. Evaluate Performance: Compare the computed protection level against the alarm limit (AL) of 50 meters. If the protection level exceeds the alarm limit, the system is not reliable.
 
 ### Task 4 ###
 ```bash
