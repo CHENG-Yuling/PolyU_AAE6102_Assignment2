@@ -100,7 +100,7 @@ In WLS, the weight of the error is considered and the following formula is used 
 
 **2. Weighted RAIM Algorithm**
 
-a. Input Data: Load the provided "Open-Sky" data, which includes pseudorange measurements from multiple satellites.
+a. Input Data: Load the provided "Opensky.bin" data, which includes pseudorange measurements from multiple satellites.
 
 b. Compute Residuals: After computing the position using WLS, calculate the residuals for each satellite measurement: $$\mathbf{r} = \mathbf{y} - \mathbf{A} \mathbf{x}$$
 
@@ -127,6 +127,8 @@ b. Use the given probabilities:
 a. Plot Stanford Chart: A Stanford Chart is used to visualize the integrity performance of the GNSS system. It plots the protection level against the actual error.
 
 b. Evaluate Performance: Compare the computed protection level against the alarm limit (AL) of 50 meters. If the protection level exceeds the alarm limit, the system is not reliable.
+
+<img src=https://github.com/CHENG-Yuling/PolyU_AAE6102_Assignment2/blob/main/Task3/Satellite%20Positions%20Across%20All%20Epochs.jpg alt="替代文本" width=500 height=350>
 
 ### Task 4 ###
 ```bash
