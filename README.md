@@ -86,11 +86,11 @@ Call the - `navSolutionResults.mat` file from "Urban.dat" data generated in A1 t
 
 Analyze the skymask to identify the azimuth and elevation angles where satellite signals are obstructed. After load skymask CSV, we can see the skymask is plotted with azimuth on the x-axis and blocking elevation on the y-axis.
 
-<img src=https://github.com/CHENG-Yuling/PolyU_AAE6102_Assignment2/blob/main/Skymask%20horizon.jpg alt="替代文本" width=500 height=350>
+<img src=https://github.com/CHENG-Yuling/PolyU_AAE6102_Assignment2/blob/main/Task2/Skymask%20horizon.jpg alt="替代文本" width=500 height=350>
 
 Then process the skymask data to adjust the angle, finally obtain it:
 
-<img src=https://github.com/CHENG-Yuling/PolyU_AAE6102_Assignment2/blob/main/GNSS%20Positioning%20in%20Urban%20Environment.jpg alt="替代文本" width=500 height=350>
+<img src=https://github.com/CHENG-Yuling/PolyU_AAE6102_Assignment2/blob/main/Task2/GNSS%20Positioning%20in%20Urban%20Environment.jpg alt="替代文本" width=500 height=350>
 
 
 ### Task 3 ###
